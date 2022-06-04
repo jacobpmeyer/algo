@@ -6,16 +6,22 @@ assumptions:
 """
 
 def findClosestValueInBst(tree, target):
+    # track the current node.
     currentNode = tree
+
+    # track the closest value
     closestValue = tree.value
 
+    #iterate over the tree nodes
     while currentNode is not None:
-        if abs(currentNode.value - target) < abs(closestValue - target):
-            closestValue = currentNode.value
+        currentValue = currentNode.value
+        #check if the current node's value is closer to the target than closestValue
+        if abs(currentValue - target) < abs(closestValue - target):
+            closestValue = currentValue
 
-        if currentNode.value == target:
-            return currentNode.value
-        elif currentNode.value < target:
+        if currentValue == target:
+            return currentValue
+        elif currentValue < target:
             currentNode = currentNode.right
         else:
             currentNode = currentNode.left
