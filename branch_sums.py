@@ -11,7 +11,6 @@ class BinaryTree:
 # if left or right aren't empty, then call traverseLeftAndRight with:
 #       runningTotal, branchTotals, and whichever child isn't nil.
 
-
 def branchSums(root):
     currentNode = root
     branchTotals = traverseLeftAndRight(tree, 0, [])
