@@ -49,3 +49,31 @@ def checkAndMoveIndex(idx, array, stop):
     while array[idx] == array[idx + 1] and idx >= stop:
         idx -= 1
     return idx
+
+
+# I didn't fully understand this problem. I was thinking of many rows,
+# alternating between red and blue.
+# The problem was actually asking to have two rows and that the back row
+# at each index be taller than the front row at the same index.
+
+# Below is clearly a better solve given the above comment, but my first itteration
+# definitely works and would work for the problem I'd imagined too, whereas
+# the solve below would not.
+def classPhotos(redShirtHeights, blueShirtHeights):
+    redShirtHeights.sort(reverse = True)
+    blueShirtHeights.sort(reverse = True)
+
+    shortColorInFirstRow = "RED" if redShirtHeights[0] < blueShirtHeights[0] else "BLUE"
+
+    for idx in range(len(redShirtHeights)):
+        redShirtHeight = redShirtHeights[idx]
+        blueShirtHeight = blueShirtHeights[idx]
+
+        if shortColorInFirstRow == "RED":
+            if redShirtHeight >= blueShirtHeight:
+                return False
+        else:
+            if blueShirtHeight >= redShirtHeight:
+                return False
+
+    return True
