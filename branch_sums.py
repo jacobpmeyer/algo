@@ -31,3 +31,11 @@ def traverseLeftAndRight(node, runningTotal, branchTotals):
 
     return branchTotals
 
+# Time complexity:
+# O(n) because you have to visit every node
+#
+# Space complexity:
+# O(n)
+# Worst case senario you have n calls on the stack
+# and with the return array, worst case is that you have O(n / 2) length array
+# which reduces to O(n)
