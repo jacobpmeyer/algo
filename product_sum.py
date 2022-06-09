@@ -15,4 +15,4 @@ def productSummer(array, depth):
 
 
 print(productSum([1, 2, 3])) #=> 6
-print(productSum([1, 2, [3]])) #=> 12
+print(productSum([1, 2, [3]])) #=> 9
