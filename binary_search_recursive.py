@@ -34,7 +34,3 @@ def binarySearchRecurs(array, target):
     return midIdx + 1 + nextCall if nextCall >= 0 else nextCall
   else:
     return binarySearchRecurs(array[:midIdx], target)
-
-
-
-
