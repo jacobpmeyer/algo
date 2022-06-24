@@ -40,3 +40,6 @@ def smallestDifference(arrayOne, arrayTwo):
       right += 1
 
   return smallest
+
+# Time: O(nlog(n) + nlog(m)) where n is len(arrayOne) and m is len(arrayTwo)
+# Space: O(1)
