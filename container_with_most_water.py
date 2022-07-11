@@ -4,8 +4,6 @@ from re import I
 class Solution:
     def maxArea(self, height: list[int]) -> int:
 
-        # return "You fucking suck and you are never going to be anything"
-
 
 
 s = Solution()
