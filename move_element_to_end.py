@@ -1,19 +1,18 @@
 def moveElementToEnd(array, toMove):
-  lastNonMoveEle = len(array) - 1
-  pointer = 0
+    left = 0
+    right = len(array) - 1
+    while left < right:
+        while left < right and array[left] != toMove:
+            left += 1
 
-  while lastNonMoveEle == toMove:
-    lastNonMoveEle -= 1
+        while left < right and array[right] == toMove:
+            right -= 1
 
-  while pointer < lastNonMoveEle:
-    while array[lastNonMoveEle] == toMove and pointer < lastNonMoveEle:
-      lastNonMoveEle -= 1
-    if array[pointer] == toMove:
-      array[pointer], array[lastNonMoveEle] = array[lastNonMoveEle], array[pointer]
+        swap = array[left]
+        array[left] = array[right]
+        array[right] = swap
 
-    pointer += 1
-
-  return array
+    return array
 
 # Time: O(n)
 # Space: O(1)
