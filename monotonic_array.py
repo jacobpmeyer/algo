@@ -1,18 +1,25 @@
 def isMonotonic(array):
-  direction = "UP"
+    if len(array) <= 1:
+        return True
 
-  i = 0
-  while i < len(array) - 1 and array[i] == array[i + 1]:
-    i += 1
+    startIdx = 0
+    while startIdx + 1 < len(array) and array[startIdx] == array[startIdx + 1]:
+        startIdx += 1
 
-  if i < len(array) - 1 and array[i] > array[i + 1]:
-    direction = "DOWN"
+    if startIdx == len(array) - 1:
+        return True
 
-  while i < len(array) - 1:
-    if direction == "UP" and array[i] > array[i + 1]:
-      return False
-    elif direction == "DOWN" and array[i] < array[i + 1]:
-      return False
-    i += 1
+    direction = ""
 
-  return True
+    if array[startIdx] > array[startIdx + 1]:
+        direction = "down"
+    else:
+        direction = "up"
+
+    for i in range(startIdx, len(array) - 1):
+        if array[i] < array[i + 1] and direction == "down":
+            return False
+        if array[i] > array[i + 1] and direction == "up":
+            return False
+
+    return True
