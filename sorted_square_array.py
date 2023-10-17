@@ -41,3 +41,27 @@ def sortedSquaredArray(array):
     j -= 1
 
   return output
+
+
+# This solution tries to get us as close to 0 as possible and then move out
+def sortedSquaredArray(array):
+  squares = []
+  left = -1
+  right = 0
+  while right < len(array) and array[right] < 0:
+      left += 1
+      right += 1
+  while left >= 0 and right < len(array):
+      if abs(array[left]) < abs(array[right]):
+          squares.append(array[left] * array[left])
+          left -= 1
+      else:
+          squares.append(array[right] * array[right])
+          right += 1
+  while left >= 0:
+      squares.append(array[left] * array[left])
+      left -= 1
+  while right < len(array):
+      squares.append(array[right] * array[right])
+      right += 1
+  return squares
