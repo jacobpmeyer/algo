@@ -1,33 +1,18 @@
-"""
-in: binary search tree
-out: closest value to that target value contained in the BST
-assumptions:
-    there will only be one closest value
-"""
-
 def findClosestValueInBst(tree, target):
-    # track the current node.
-    currentNode = tree
+    closest = float('inf')
+    node = tree
+    while node is not None:
+        if node.value == target:
+            return node.value
+        elif abs(node.value - target) < abs(closest - target):
+            closest = node.value
 
-    # track the closest value
-    closestValue = tree.value
-
-    #iterate over the tree nodes
-    while currentNode is not None:
-        currentValue = currentNode.value
-        #check if the current node's value is closer to the target than closestValue
-        if abs(currentValue - target) < abs(closestValue - target):
-            closestValue = currentValue
-
-        if currentValue == target:
-            return currentValue
-        elif currentValue < target:
-            currentNode = currentNode.right
+        if node.value > target:
+            node = node.left
         else:
-            currentNode = currentNode.left
+            node = node.right
 
-    return closestValue
-
+    return closest
 
 # This is the class of the input tree. Do not edit.
 class BST:
@@ -35,4 +20,3 @@ class BST:
         self.value = value
         self.left = None
         self.right = None
-
